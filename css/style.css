@@ -29,6 +29,34 @@ body {
   padding-bottom: 120px;
 }
 
+#bgVid {
+    position: absolute;
+    top: 0;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+}
+
+.video-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1; /* Sends video to the background */
+}
+
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Dark overlay with 50% opacity */
+}
+
 .logo-image {
     width: 200px;
     height: auto;
@@ -83,8 +111,9 @@ a:focus {
 
 /*header section*/
 .hero_area {
-  position: relative;
-  background-color: #d1e3ff;
+    position: relative;
+    z-index: 10; /* Ensures the header stays above the video */
+    background-color: #d1e3ff;
 }
 
 .header_section .container-fluid {
@@ -296,9 +325,9 @@ a:focus {
   position: unset;
 }
 
-.slider_section .detail-box {
-  padding-bottom: 90px;
-}
+    .slider_section .detail-box {
+        padding-bottom: 90px;
+    }
 
 .slider_section .detail-box h1 {
   font-weight: bold;
@@ -306,10 +335,14 @@ a:focus {
   color: #0355cc;
 }
 
-.slider_section .detail-box p {
-  color: #444;
-  font-size: 15px;
-}
+        .slider_section .detail-box p {
+            color: #444;
+            font-size: 15px;
+            position: relative;
+            z-index: 2;
+            color: white; /* Ensures text is readable */
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7); /* Adds contrast */
+        }
 
 .slider_section .detail-box a {
   display: inline-block;
@@ -333,15 +366,17 @@ a:focus {
 }
 
 .feature_section {
-  -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    z-index: 11; /* Ensures the header stays above the video */
 }
 
-.feature_section .feature_container {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
+    .feature_section .feature_container {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        z-index: 11; /* Ensures the header stays above the video */
+    }
 
 .feature_section .feature_container .box {
   -webkit-box-flex: 1;
@@ -526,6 +561,7 @@ a:focus {
   max-width: 100%;
   -webkit-transition: all .3s;
   transition: all .3s;
+  color: #ffffff;
 }
 
 .service_section .box .detail-box {
