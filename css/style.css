@@ -29,6 +29,11 @@ body {
   padding-bottom: 120px;
 }
 
+.logo-image {
+    width: 200px;
+    height: auto;
+}
+
 .heading_container {
   display: -webkit-box;
   display: -ms-flexbox;
